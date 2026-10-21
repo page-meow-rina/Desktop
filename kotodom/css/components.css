@@ -24,6 +24,11 @@
   box-shadow:0 14px 34px rgba(168,48,95,0.3);
   background:var(--brown-dark);
 }
+.btn-primary:disabled{
+  opacity:.7;
+  cursor:wait;
+  transform:none;
+}
 
 .btn-ghost{
   background:transparent;
@@ -193,6 +198,8 @@ header.scrolled{
   padding:26px;
   text-align:center;
   box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
   transition:transform .3s ease, box-shadow .3s ease;
 }
 .cat-card:hover{
@@ -204,14 +211,13 @@ header.scrolled{
   margin:0 auto 16px;
   border-radius:50%;
   background:var(--beige);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:3rem;
+  object-fit:cover;
+  display:block;
 }
 .cat-card h3{margin-bottom:4px;}
 .cat-age{color:var(--brown); font-weight:700; font-size:.9rem; margin-bottom:10px;}
 .cat-card p{font-size:.95rem;}
+.cat-card .btn{margin-top:auto; padding:10px 20px; font-size:.9rem; min-height:40px;}
 
 /* Adoption steps */
 .steps{background:var(--cream-2);}
@@ -258,6 +264,15 @@ header.scrolled{
 .help-card:hover{transform:translateY(-6px);}
 .help-icon{font-size:2.6rem; margin-bottom:14px;}
 .help-card h3{font-size:1.1rem; margin-bottom:8px;}
+
+.help-actions{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+.help-actions .btn{min-width:220px;}
 
 /* Reviews */
 .reviews{background:var(--cream-2);}
@@ -335,3 +350,88 @@ footer .footer-links{
 }
 footer a{font-weight:600;}
 footer a:hover{color:var(--tan);}
+
+/* ---------- Форма заявки ---------- */
+.adopt-form-section{background:var(--cream-2);}
+
+.adopt-form{
+  max-width:720px;
+  margin:0 auto;
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:36px;
+  box-shadow:var(--shadow);
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-field{
+  margin-bottom:18px;
+}
+.form-field label{
+  display:block;
+  font-weight:700;
+  font-size:.95rem;
+  margin-bottom:6px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width:100%;
+  padding:12px 14px;
+  border:2px solid var(--beige);
+  border-radius:12px;
+  font-family:'Nunito', sans-serif;
+  font-size:1rem;
+  color:var(--ink);
+  background:var(--cream);
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  outline:none;
+  border-color:var(--brown);
+  box-shadow:0 0 0 3px rgba(224,85,143,.15);
+}
+
+.form-check{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:.9rem;
+  margin-bottom:22px;
+  cursor:pointer;
+}
+.form-check input{
+  margin-top:4px;
+  accent-color:var(--brown);
+  width:18px;
+  height:18px;
+  flex-shrink:0;
+}
+
+.form-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.form-hint{font-size:.9rem;}
+.form-hint a{
+  color:var(--brown-dark);
+  font-weight:700;
+}
+.form-hint a:hover{text-decoration:underline;}
+
+.form-status{
+  margin-top:16px;
+  font-weight:700;
+  min-height:1.5em;
+}
+.form-status.success{color:var(--brown-dark);}
+.form-status.error{color:#b3261e;}
